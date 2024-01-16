@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>  
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/tela-login.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="container-fluid border" id="faixa-header">
+        <section class="row border">
+            <div class="col-md-8 col-12 p-5">
+                <img class="img-fluid w-25" src="img/logo-direcional.png" alt="Logo-Direcional">
+            </div>
+        </section>
+    </header>
+    <!-- Área Pincipal / Tela de Login -->
+    <main class="container justify-content-center h-75">
+        <section class="row h-100 align-items-center my-4">
+            <div class="col-12 h-100 ">
+                <form class="m-auto border h-100 p-5">
+                    <h1 class="text-center h1 mt-5">Login</h1>
+                    <p class="text-muted text-center d-block">Seja bem vindo ao sistema de gerenciamento de ferramentas da Direcional! Faça login para continuar.</p>
+                    <div class="form-group mt-5 align-items-center">
+                      <label for="iusuario">Usuário</label>
+                      <input type="text" class="form-control form-control-lg" id="iusuario" placeholder="Usuário" required minlength="3">
+                    </div>
+                    <div class="form-group mb-4">
+                      <label for="isenha">Senha</label>
+                      <input type="password" class="form-control form-control-lg" id="isenha" placeholder="Senha" required minlength="6" maxlength="32">
+                    </div>
+                    <div class="w-100 text-center mt-3"><button type="submit" class="btn btn-primary w-75 btn-lg">Entrar</button></div>
+                  </form>
+            </div>
+        </section>
+    </main>
+
+    
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

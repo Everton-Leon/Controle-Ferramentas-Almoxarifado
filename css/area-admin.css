@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/* Importação da Fonte */
+@font-face{
+    font-family: "TT Norms Pro";
+    src: url("../font/TT-Norms-Pro-Light.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "TT Norms Pro";
+}
+
+/* CSS Menu Lateral */
+#menu-lateral {
+    background-color: #0f3254;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.411);
+}
+
+
+#menu-lateral a {
+    display: block;
+    text-decoration: none;
+    color: #2D95FC;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.397);
+    /* border: 2px solid #333; */
+    /* letter-spacing: 2px; */
+    /* text-align: center; */
+    position: relative;
+    transition: all .35s;
+}
+
+#menu-lateral a span{
+    position: relative;
+    z-index: 2;
+}
+
+ #menu-lateral a:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #9090D4;
+    transition: all .35s;
+  }
+
+#menu-lateral a:hover {
+    color: #FFFFFF;
+}
+
+#menu-lateral a:hover:after{
+    width: 100%;
+}
+
+#menu-lateral #link-ativo {
+    color: white;
+}
+
+#div-sair {
+    height: 48%;
+    margin: 0.1%;
+}
+
+#div-sair a {
+    color: gray;
+}

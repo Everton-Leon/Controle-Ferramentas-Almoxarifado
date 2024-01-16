@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almoxerifado - home</title>  
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="../css/css-bootstrap/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="container-fluid" id="faixa-header">
+        <section class="row p-4">
+            <div class="col-8 p-2">
+                <img class="img-fluid w-25 p-1" src="../img/logo-direcional.png" alt="Logo-Direcional">
+            </div>
+            <div class="col-4 p-2 text-end">
+                <button type="button" class="btn btn-primary mx-2">Área do Adiministrador</button>
+                <button type="button" class="btn btn-danger">Logout</button>
+            </div>
+        </section>
+    </header> 
+    <!-- Área Principal -->
+    <main class="container border my-2">
+        <section class="row border mb-3">
+            <div class="col-12 text-center">
+                <h3 class="h4"><strong>Obra</strong></h3>
+                <p>OBRA 369CE</p>
+            </div>
+        </section>
+        <!-- Linha da Ferramenta -->
+        <section class="row border text-center mb-3">
+            <div class="col">
+                <label for="icodigo-ferramenta">Código Ferramenta</label>
+                <input type="text" class="form-control" id="icodigo-ferramenta" placeholder="000000" onblur="getValoresFerramenta()">
+              </div>
+              <div class="col">
+                <label for="iferramenta">Ferramenta</label>
+                <input type="text" readonly class="form-control-plaintext text-center" id="iferramenta" placeholder="Martelete">
+              </div>
+              <div class="col">
+                <label for="ihorario">Data e Hora</label>
+                <input type="text" readonly class="form-control-plaintext text-center" id="ihorario" placeholder="06/02/2004">
+              </div>
+        </section>
+        <!-- Linha do Funcionário -->
+        <section class="row border text-center mb-3">
+            <div class="col">
+                <label for="codigo-funcionario">Código Funcionário</label>
+                <input type="text" class="form-control" id="icodigo-funcionario" placeholder="000000" onblur="getValoresFuncionario()">
+              </div>
+              <div class="col">
+                <label for="nome">Nome</label>
+                <input type="text" readonly class="form-control-plaintext text-center" id="inome" placeholder="João da Silva">
+              </div>
+              <div class="col">
+                <label for="funcao">Função</label>
+                <input type="text" readonly class="form-control-plaintext text-center" id="ifuncao" placeholder="Pedreiro">
+              </div>
+        </section>
+        <!-- Linha Encarregado -->
+        <section class="row border text-center mb-3">
+            <div class="col">
+                <label for="iencarregado">Encarregado</label>
+                <input type="text" readonly class="form-control-plaintext text-center" id="iencarregado" placeholder="Edinho">
+            </div>
+            <div class="col">
+                <label for="isecao">Seção</label>
+                <input type="text" readonly class="form-control-plaintext text-center" id="isecao" placeholder="OBRA 369CE - MÃO DE OBRA DIRETA">
+            </div>
+            <div class="col">
+                <label for="ifrente-servico">Frente de Serviço</label>
+                <input type="text" readonly class="form-control-plaintext text-center" id="ifrente-servico" placeholder="Almoxerife">
+            </div>
+        </section>
+        <!-- Linha Imagens -->
+        <section class="row border text-center mb-3">
+            <div class="col">
+                <img src="../img/imagem-ferramentas/02af183fd1028d453a058de4569fcd6c.jpg" id="imgFerramenta" class="rounded float-left w-25" alt="Ferramenta">
+                <img src="../img/imagem-ferramentas/02af183fd1028d453a058de4569fcd6c.jpg" id="imgEfetivo" class="rounded float-right w-25" alt="Efetivo">
+            </div>
+        </section>
+        <section class="row border text-center mb-3">
+            <div class="col">
+                <button type="button" class="btn btn-primary">Pegar Ferramenta</button>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="../js/js-bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js/js-bootstrap/bootstrap.min.js"></script>
+    <script>
+        // Função para pegar os valores do banco de dados (ferramenta)
+        function getValoresFerramenta() {
+            var codFerramenta = document.getElementById('icodigo-ferramenta');
+            var nomeFerramenta = document.getElementById('iferramenta');
+            var horario = document.getElementById('ihorario');
+            var data = dataHora();
+            var imgFerramenta = document.getElementById('imgFerramenta');
+
+            if(!codFerramenta.value.length == 0){
+                nomeFerramenta.value = "Martelo";
+                horario.value = data;
+                imgFerramenta.src = "";
+            }
+        }
+        // Função para pegar os valores do banco de dados (efetivo)
+        function getValoresFuncionario() {
+            var codFunc = document.getElementById('icodigo-funcionario');
+            var nomeFunc = document.getElementById('inome');
+            var funcao = document.getElementById('ifuncao');
+            var encarregado = document.getElementById('iencarregado');
+            var secao = document.getElementById('isecao');
+            var frenServi = document.getElementById('ifrente-servico');
+            var imgEfetivo = document.getElementById('imgEfetivo');
+
+            if(!codFunc.value.length == 0){
+                nomeFunc.value = "Adecidio Santiago Barbosa";
+                funcao.value = "Almoxerife";
+                encarregado.value = "Indireto";
+                secao.value = "OBRA 369CE - MÃO DE OBRA INDIRETA";
+                frenServi.value = "Almoxerife";
+                imgEfetivo.src = "";
+            }
+        }
+
+        // função da data
+        function dataHora() {
+            const dataAtual = new Date();
+
+            const ano = dataAtual.getFullYear();
+            const mes = dataAtual.getMonth() + 1; 
+            const dia = dataAtual.getDate();
+            const mesFormatado = mes < 10 ? `0${mes}` : mes;
+            const diaFormatado = dia < 10 ? `0${dia}` : dia;
+            var h = dataAtual.getHours();
+            var m = dataAtual.getMinutes();
+            var s = dataAtual.getSeconds();
+            var horasFormatadas = h < 10 ? `0${h}` : h;
+            var minutosFormatados = m < 10 ? `0${m}` : m;
+            var segundosFormatados = s < 10 ? `0${s}` : s;
+
+            const dataFormatada = `${diaFormatado}/${mesFormatado}/${ano} ${horasFormatadas}:${minutosFormatados}:${segundosFormatados}`;
+            return dataFormatada;
+        }
+    </script>
+</body>
+</html>

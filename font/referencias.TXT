@@ -1,0 +1,35 @@
+cores:
+#003ca5 // azul
+#bf062f // vermelho
+#f3efeb
+
+#0f3254 // novo azul
+#a7353d // novo vermelho
+
+font: 
+TT Norms Pro
+
+Banco Efetivo:
+id int | codigo varchar(10) | nome varchar(255) | 
+funcao varchar(50) | encarregado varchar(50) | secao varchar(150) | 
+situacao varchar(50) | frente_servico varchar(80) | imagem_efetivo
+
+Banco não devolvidos:
+id int | cod_ferramenta varchar(50) | 
+nome_ferramenta varchar(150) | nome_func varchar(255) | 
+encarregado varchar(50)
+frente_servico varchar(80) | 
+horario date time
+
+Banco Historico:
+id int
+cod_ferramenta varchar(50)| 
+nome_ferramenta varchar(150)| 
+cod_funcionario varchar(10)| 
+nome_func varchar(255)|
+funcao varchar(50)| 
+secao varchar(150)| 
+encarregado varchar(50)| 
+frente_servico varchar(80)| 
+acao varchar(15)
+horario date time

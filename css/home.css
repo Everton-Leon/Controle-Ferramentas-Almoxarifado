@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* Importação da Fonte */
+@font-face{
+    font-family: "TT Norms Pro";
+    src: url("../font/TT-Norms-Pro-Light.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "TT Norms Pro";
+}
+
+body {
+    background-color: #0f3254;
+}
+
+header {
+    background-color: #d6d0ca;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.411);
+}
+
+main {
+    background-color: #d6d0ca;
+    color: #0f3254;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.411);
+}
