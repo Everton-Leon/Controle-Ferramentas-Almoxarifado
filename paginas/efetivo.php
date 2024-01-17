@@ -61,8 +61,8 @@ unset($_SESSION['mensagem']);
                 <div class="col-8">
                     <h1 class="h1">Efetivo</h1>
                 </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-cadastro">Cadastrar Efetivo</button>
+                <div class="col-4 text-end">
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modal-cadastro">Cadastrar Efetivo</button>
                 </div>
                 <!-- Tabela -->
                 </div>

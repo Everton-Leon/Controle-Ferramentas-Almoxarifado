@@ -24,8 +24,6 @@ endif;
     <link rel="stylesheet" href="../css/css-bootstrap/bootstrap.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="../css/area-admin.css">
-    <!-- Script biblioteca jsPDF -->
-    
 </head>
 <body>
     <section class="container-fluid">
@@ -53,8 +51,8 @@ endif;
                 <div class="col-8">
                     <h1 class="h1">Não Devolvidos</h1>
                 </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-primary" id="btnGerarPDF">Gerar PDF</button>
+                <div class="col-4 text-end">
+                    <button type="button" class="btn btn-outline-dark" id="btnGerarPDF" onclick="gerarPDF()">Gerar PDF</button>
                 </div>
                 <!-- Tabela -->
                 </div>
@@ -102,20 +100,21 @@ endif;
     <!-- JavaScript -->
     <script src="../js/js-bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../js/js-bootstrap/bootstrap.min.js"></script>
+    <!-- Script biblioteca jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.9/jspdf.plugin.autotable.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('btnGerarPDF').addEventListener('click', function () {
-            // Crie um novo documento jsPDF
-            var doc = new jsPDF();
-
-            // Adicione a tabela ao PDF
-            doc.autoTable({ html: 'table' });
-
-            // Salve o PDF
-            doc.save('relatorio.pdf');
+        function gerarPDF() {
+        var doc = new jsPDF();
+        doc.autoTable({
+            html: '#table',
+            theme: 'grid',
+            styles: { fontSize: 8, textColor: [0, 0, 0] }
         });
-    });
+        doc.save('nao-devolvidos.pdf');
+    }
     </script>
 </body>
 </html>

@@ -44,7 +44,6 @@ unset($_SESSION['mensagem']);
                 <img class="img-fluid w-25 p-1" src="../img/logo-direcional.png" alt="Logo-Direcional">
             </div>
             <div class="col-4 p-2 text-end">
-                <a href="#" class="btn btn-info">Ajuda</a>
                 <a href="ferramentas.php" class="btn btn-primary mx-2">Área do Adiministrador</a>
                 <a href="logout.php" class="btn btn-danger">Logout</a>
             </div>
@@ -52,9 +51,20 @@ unset($_SESSION['mensagem']);
     </header> 
     <!-- Área Principal -->
     <main class="container border rounded my-2">
+    <section class="row">
+            <div class="col-12 text-end">
+                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-ajuda">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                </svg> 
+                 </a>
+            </div>
+        </section>
+    
         <section class="row mb-3">
             <div class="col-12 text-center">
-                <h3 class="h4 mt-4"><strong>Obra</strong></h3>
+                <h3 class="h4 "><strong>Obra</strong></h3>
                 <input type="text" readonly class="form-control-plaintext text-center" id="iobra" name="obra" placeholder="OBRA 369CE - MÃO DE OBRA DIRETA">
             </div>
         </section>
@@ -107,13 +117,13 @@ unset($_SESSION['mensagem']);
         <!-- Linha Imagens -->
         <section class="row text-center mb-3">
             <div class="col-4">
-                <img src="../img/img-ferramenta.png" id="imgFerramenta" class="rounded float-left w-75" alt="Ferramenta">
+                <img src="../img/img-ferramenta.png" id="imgFerramenta" class="rounded border float-left w-75" alt="Ferramenta">
             </div>
             <div class="col-4" id="div-seta">
                 <!-- Seta -->
             </div>
             <div class="col-4">
-                <img src="../img/img-funcionario.png" id="imgEfetivo" class="rounded float-right w-75" alt="Efetivo">
+                <img src="../img/img-funcionario.png" id="imgEfetivo" class="rounded border float-right w-75" alt="Efetivo">
             </div>
         </section>
         <section class="row text-center mb-3">
@@ -123,15 +133,105 @@ unset($_SESSION['mensagem']);
             </div>
         </section>
         </form>
+        <section class="row text-center mb-3">
+            <div class="col" id="camera">           
+            </div>
+        </section>
     </main>
+     <p class="text-center bg-light m-0">Site criado por <a href="https://www.instagram.com/everton.leon7/" target="_blanc">Everton Leon</a>. E-mail para contato: <strong>evertonleon07@gmail.com</strong></p>
+
+    <!-- Modal de Ajuda -->
+    <div class="modal fade" id="modal-ajuda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Ajuda</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <p><strong>Bem-vindo ao nosso sistema de controle de ferramentas! Aqui estão algumas informações úteis para ajudar você a usar eficientemente o site:</strong></p>
+
+        <p><strong>1. Registro de Ferramentas:</strong></p>
+
+        <ul>
+            <li>Para registrar uma ferramenta, insira o código da ferramenta no primeiro campo de input.</li>
+            <li>Assim que você clicar fora da caixa de input, as informações detalhadas da ferramenta serão automaticamente preenchidas nos campos relevantes abaixo.</li>
+        </ul>
+
+        <p><strong>2. Registro do Funcionário:</strong></p>
+
+        <ul>
+            <li>Da mesma forma, insira o código do funcionário no segundo campo de input.</li>
+            <li>Quando você clicar fora da caixa de input, as informações do funcionário serão carregadas nos campos apropriados.</li>
+        </ul>
+
+        <p><strong>3. Verificação de Disponibilidade:</strong></p>
+
+        <ul>
+            <li>Se a ferramenta estiver marcada como "Disponível" no banco de dados, o botão para pegar a ferramenta será ativado automaticamente.</li>
+            <li>Se o status da ferramenta estiver como "Em Campo", o botão para devolver a ferramenta será habilitado.</li>
+        </ul>
+
+        <p><strong>4. Uso Eficiente:</strong></p>
+
+        <ul>
+            <li>Para uma experiência eficiente, certifique-se de que os códigos da ferramenta e do funcionário estejam corretos antes de confirmar.</li>
+            <li>Se você precisar corrigir ou alterar as informações, basta digitar os novos códigos e clicar fora da caixa de input novamente.</li>
+        </ul>
+
+        <p><strong>5. Status Atual:</strong></p>
+
+        <ul>
+            <li>O status atual da ferramenta (Disponível, Em Campo, etc.) será exibido para sua referência imediata.</li>
+            <li>Isso permite que você tome decisões rápidas com base no status atual da ferramenta.</li>
+        </ul>
+
+        <p><strong>6. Botões de Ação:</strong></p>
+
+        <ul><li>Quando disponíveis, os botões de "Pegar Ferramenta" e "Devolver Ferramenta" serão liberados automaticamente, dependendo do status da ferramenta.</li></ul>
+
+        <p><strong>Agradeço por utilizar meu sistema de controle de ferramentas. Se houver algo mais em que posso ajudar, não hesite em me informar. Tenha um excelente dia!</strong></p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
 
 
     <!-- JavaScript -->
     <script src="../js/js-bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../js/js-bootstrap/bootstrap.min.js"></script>
+    <script src="../js/quagga.min.js"></script>
 
     <!-- Script com as funções que serão usadas  -->
     <script>
+        // Leitor de código de barras
+        function lerCodigoDeBarras(){
+            Quagga.init({
+                inputStream : {
+                name : "Live",
+                type : "LiveStream",
+                target: document.querySelector('#camera')    // Or '#yourElement' (optional)
+                },
+                decoder : {
+                readers : ["code_128_reader"]
+                }
+            }, function(err) {
+                if (err) {
+                    console.log(err);
+                    return
+                }
+                console.log("Initialization finished. Ready to start");
+                Quagga.start();
+            });
+
+            Quagga.onDetected(function (data) {
+                console.log(data)
+            })
+        }
+
 
         // Funcão para pegar os dados da ferramenta
         function getValoresFerramenta(){
@@ -187,6 +287,10 @@ unset($_SESSION['mensagem']);
                         seta.src = '../img/seta-indo.png';
                     }
 
+                    imgFerramenta.onerror = function() {
+                        imgFerramenta.src = "../img/f-sem-img.png";
+                    };
+
                     document.getElementById('div-seta').appendChild(seta);
                     
                 }
@@ -237,9 +341,9 @@ unset($_SESSION['mensagem']);
                     frenServi.value = resposta[4];
                     imgEfetivo.src = resposta[5];
 
-                    if (imgEfetivo.src === "") {
-                        imgEfetivo.src = '../img/e-sem-img.png';
-                    }
+                    imgEfetivo.onerror = function() {
+                        imgEfetivo.src = "../img/e-sem-img.png";
+                    };
                 }
                 }
                 // faz a requisição AJAX - método GET ou POST
