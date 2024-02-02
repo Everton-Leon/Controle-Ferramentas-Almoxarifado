@@ -11,9 +11,14 @@ endif;
 
 // Verifica se a sessão mensagem existe
 if (isset($_SESSION['mensagem'])): ?>
+<div id="mensagem" style="position: fixed; top: 0; left: 36%; width: 30%; background-color: #0f3254; color: white; padding: 10px; text-align: center;">
+    <?php echo $_SESSION['mensagem']; ?>
+</div>
 <script>
     window.onload = function () {
-        alert('<?php echo $_SESSION['mensagem']; ?>')
+        setTimeout(function(){
+            document.getElementById('mensagem').style.display = 'none';
+        }, 3000); // Esconder a mensagem após 3 segundos (3000 milissegundos)
     }
 </script>
 <?php
@@ -27,7 +32,7 @@ unset($_SESSION['mensagem']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almoxerifado - Efetivo</title>  
+    <title>Almoxarifado - Efetivo</title>  
     <!-- Favicon -->
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <!-- CSS Bootstrap -->

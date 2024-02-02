@@ -38,7 +38,7 @@ endif;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almoxerifado - Login</title>  
+    <title>Almoxarifado - Login</title>  
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <!-- CSS Bootstrap -->
@@ -64,7 +64,7 @@ endif;
                     <small class="text-muted text-center d-block">Seja bem vindo ao sistema de gerenciamento de ferramentas da Direcional! Faça login para continuar.</small>
                     <div class="form-group align-items-center mt-4">
                       <label for="iusuario">Usuário</label>
-                      <input type="text" class="form-control" name="login" id="iusuario" placeholder="Usuário" required minlength="3">
+                      <input type="text" class="form-control" name="login" id="iusuario" placeholder="Usuário" required minlength="3" autocomplete="off">
                     </div>
                     <div class="form-group my-3">
                       <label for="isenha">Senha</label>

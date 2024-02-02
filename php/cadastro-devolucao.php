@@ -21,7 +21,7 @@ if (isset($_POST['btn-pegar-ferramenta'])):
     // Inserção na tabela não devolvidos
     $sql = "INSERT INTO nao_devolvidos (`cod_ferramenta`, `nome_ferramenta`, `nome_func`, `encarregado`, `frente_servico`, `horario`) VALUES ('$codFerramenta', '$ferramenta', '$nome', '$encarregado', '$frente_servico', '$horario')";
 
-    $sqlHistorico = "INSERT INTO historico (`cod_ferramenta`, `nome_ferramenta`,`cod_funcionario`, `nome_func`, `funcao`,`secao`, `encarregado`, `frente_servico`, `acao`, `horario`) VALUES ('$codFerramenta', '$ferramenta', '$codFunc', '$nome', '$funcao', '$secao', '$encarregado', '$frente_servico', 'pegou', '$horario')";
+    $sqlHistorico = "INSERT INTO historico (`cod_ferramenta`, `nome_ferramenta`,`cod_funcionario`, `nome_func`, `funcao`,`secao`, `encarregado`, `frente_servico`, `acao`, `horario`) VALUES ('$codFerramenta', '$ferramenta', '$codFunc', '$nome', '$funcao', '$secao', '$encarregado', '$frente_servico', 'Pegou', '$horario')";
 
     // Alteração no status da ferramenta
     $upadateFerramenta = "UPDATE ferramentas SET `status` = 'Em campo' WHERE codigo = '$codFerramenta'";
@@ -48,14 +48,14 @@ if (isset($_POST['btn-devolver-ferramenta'])):
     $frente_servico = $_POST['frente-servico'];
     $horario = date('Y-m-d H:i:s');
 
-    // Inserção no banco de dados
+    // Deleta no banco de dados não devolvidos
     $sql = "DELETE FROM nao_devolvidos WHERE cod_ferramenta = '$codFerramenta'";
 
     // Alteração no status da ferramenta
-    $upadateFerramenta = "UPDATE ferramentas SET `status` = 'disponivel' WHERE codigo = '$codFerramenta'";
+    $upadateFerramenta = "UPDATE ferramentas SET `status` = 'Disponível' WHERE codigo = '$codFerramenta'";
 
     // Inserção no histórico
-    $sqlHistorico = "INSERT INTO historico (`cod_ferramenta`, `nome_ferramenta`,`cod_funcionario`, `nome_func`, `funcao`,`secao`, `encarregado`, `frente_servico`, `acao`, `horario`) VALUES ('$codFerramenta', '$ferramenta', '$codFunc', '$nome', '$funcao', '$secao', '$encarregado', '$frente_servico', 'devolveu', '$horario')";
+    $sqlHistorico = "INSERT INTO historico (`cod_ferramenta`, `nome_ferramenta`,`cod_funcionario`, `nome_func`, `funcao`,`secao`, `encarregado`, `frente_servico`, `acao`, `horario`) VALUES ('$codFerramenta', '$ferramenta', '$codFunc', '$nome', '$funcao', '$secao', '$encarregado', '$frente_servico', 'Devolveu', '$horario')";
 
     if (mysqli_query($connect, $sql) && mysqli_query($connect, $upadateFerramenta) && mysqli_query($connect, $sqlHistorico)):
         $_SESSION['mensagem'] = "Ferrameta devolvida com sucesso!";

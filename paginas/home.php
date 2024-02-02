@@ -11,12 +11,17 @@ endif;
 
 // Verifica se a sessão mensagem existe
 if (isset($_SESSION['mensagem'])): ?>
-    <script>
-        window.onload = function () {
-            alert('<?php echo $_SESSION['mensagem']; ?>')
-        }
-    </script>
-    <?php
+<div id="mensagem" style="position: fixed; top: 0; left: 36%; width: 30%; background-color: #0f3254; color: white; padding: 10px; text-align: center;">
+    <?php echo $_SESSION['mensagem']; ?>
+</div>
+<script>
+    window.onload = function () {
+        setTimeout(function(){
+            document.getElementById('mensagem').style.display = 'none';
+        }, 3000); // Esconder a mensagem após 3 segundos (3000 milissegundos)
+    }
+</script>
+<?php
 endif;
 unset($_SESSION['mensagem']);
 
@@ -28,7 +33,7 @@ unset($_SESSION['mensagem']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almoxerifado - home</title>  
+    <title>Almoxarifado - home</title>  
     <!-- Favicon -->
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
     <!-- CSS Bootstrap -->
@@ -44,7 +49,7 @@ unset($_SESSION['mensagem']);
                 <img class="img-fluid w-25 p-1" src="../img/logo-direcional.png" alt="Logo-Direcional">
             </div>
             <div class="col-4 p-2 text-end">
-                <a href="ferramentas.php" class="btn btn-primary mx-2">Área do Adiministrador</a>
+                <a href="bem-vindo.php" class="btn btn-primary mx-2">Área do Adiministrador</a>
                 <a href="logout.php" class="btn btn-danger">Logout</a>
             </div>
         </section>
@@ -73,7 +78,7 @@ unset($_SESSION['mensagem']);
         <section class="row border text-center mb-3">
             <div class="col">
                 <label for="icodigo-ferramenta">Código Ferramenta</label>
-                <input type="text" class="form-control" id="icodigo-ferramenta" name="codigo-ferramenta" placeholder="000000" required pattern="[0-9]+" minlength="6" maxlength="10" onblur="getValoresFerramenta()">
+                <input type="text" class="form-control" id="icodigo-ferramenta" name="codigo-ferramenta" placeholder="000000" required pattern="[0-9]+" minlength="6" maxlength="10" onblur="getValoresFerramenta()" autofocus>
               </div>
               <div class="col">
                 <label for="iferramenta">Ferramenta</label>
@@ -207,32 +212,6 @@ unset($_SESSION['mensagem']);
 
     <!-- Script com as funções que serão usadas  -->
     <script>
-        // Leitor de código de barras
-        function lerCodigoDeBarras(){
-            Quagga.init({
-                inputStream : {
-                name : "Live",
-                type : "LiveStream",
-                target: document.querySelector('#camera')    // Or '#yourElement' (optional)
-                },
-                decoder : {
-                readers : ["code_128_reader"]
-                }
-            }, function(err) {
-                if (err) {
-                    console.log(err);
-                    return
-                }
-                console.log("Initialization finished. Ready to start");
-                Quagga.start();
-            });
-
-            Quagga.onDetected(function (data) {
-                console.log(data)
-            })
-        }
-
-
         // Funcão para pegar os dados da ferramenta
         function getValoresFerramenta(){
             // variáveis 
@@ -264,7 +243,7 @@ unset($_SESSION['mensagem']);
                     codFerramenta = "";
                     nomeFerramenta.value = ""; // Nome
                     horario.value = ""; // Horário
-                    imgFerramenta.src = "";
+                    imgFerramenta.src = "../img/img-ferramenta.png";
                 } else {
                     // Se não ele atualiza os valores dos inputs com as partes separadas
                     nomeFerramenta.value = resposta[0]; // Nome
@@ -330,7 +309,7 @@ unset($_SESSION['mensagem']);
                     encarregado.value = "";
                     secao.value = "";
                     frenServi.value = "";
-                    imgEfetivo.src = "";
+                    imgEfetivo.src = "../img/img-funcionario.png";
                 }else {
                     // Se não ele atualiza os valores dos inputs com as partes separadas
                     nomeFunc.value = resposta[0];
